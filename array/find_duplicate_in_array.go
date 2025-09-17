@@ -2,13 +2,16 @@ package array
 
 // FindDuplicate solves the problem in O(n) time and O(1) space.
 func FindDuplicate(list []int) int {
-	for _, item := range list {
-		itemIndex := abs(item) - 1
+	for _, num := range list {
+		itemIndex := abs(num) - 1
+
 		if list[itemIndex] < 0 {
-			return item
+			return abs(num)
 		}
+
 		list[itemIndex] *= -1
 	}
+
 	return -1
 }
 
