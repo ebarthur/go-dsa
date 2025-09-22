@@ -11,14 +11,14 @@ import (
 // Space Complexity: O(n)
 
 // cities (Accra, 121; Kumasi, 349; Takoradi, 718)
-func NearestCities(lines string) ([]int32, error) {
+func NearestCities(lines string) ([]int, error) {
 	input := strings.Split(strings.TrimSpace(lines), ";")
 
 	if len(input) == 0 {
 		return nil, errors.New("input must not be empty")
 	}
 
-	var distances []int32
+	var distances []int
 	for _, item := range input {
 		parts := strings.Split(strings.TrimSpace(item), ",")
 
@@ -26,13 +26,13 @@ func NearestCities(lines string) ([]int32, error) {
 			continue
 		}
 
-		distance, err := strconv.ParseInt(strings.TrimSpace(parts[1]), 10, 32)
+		distance, err := strconv.Atoi(strings.TrimSpace(parts[1]))
 
 		if err != nil {
 			continue
 		}
 
-		distances = append(distances, int32(distance))
+		distances = append(distances, int(distance))
 
 	}
 
@@ -42,7 +42,7 @@ func NearestCities(lines string) ([]int32, error) {
 
 	slices.Sort(distances)
 
-	result := make([]int32, 0, len(distances))
+	result := make([]int, 0, len(distances))
 	result = append(result, distances[0])
 
 	for i := 1; i < len(distances); i++ {
@@ -52,7 +52,7 @@ func NearestCities(lines string) ([]int32, error) {
 	return result, nil
 }
 
-func abs(a, b int32) int32 {
+func abs(a, b int) int {
 	if a < b {
 		return b - a
 	}

@@ -8,9 +8,9 @@ func MaxProfit(prices []int) int {
 	maxProfit := 0
 
 	for _, price := range prices {
-		minPrice = int(math.Min(float64(minPrice), float64(price)))
+		minPrice = min(minPrice, price)
 
-		maxProfit = int(math.Max(float64(maxProfit), float64(price-minPrice)))
+		maxProfit = max(maxProfit, price-minPrice)
 	}
 
 	return maxProfit

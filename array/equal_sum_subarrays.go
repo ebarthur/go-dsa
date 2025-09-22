@@ -1,5 +1,10 @@
 package array
 
+// Given an array of integers, split it into two non-empty subarrays
+// such that the sum of elements in both subarrays is equal.
+//
+// Return the two subarrays. If no such split is possible, return an empty result.
+
 // EqualSubArrays solves the problem in O(n^2) time and O(1) space.
 func EqualSubArrays(list []int) [][]int {
 	output := make([][]int, 0)
@@ -12,7 +17,7 @@ func EqualSubArrays(list []int) [][]int {
 		return output
 	}
 
-	output = append(output, list[0:splitPoint])
+	output = append(output, list[:splitPoint])
 	output = append(output, list[splitPoint:])
 
 	return output
@@ -20,7 +25,7 @@ func EqualSubArrays(list []int) [][]int {
 
 func findSplitPoint(list []int) int {
 	lSum := 0
-	for i := range len(list) {
+	for i := range list {
 		lSum += list[i]
 
 		rSum := 0

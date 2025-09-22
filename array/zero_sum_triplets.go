@@ -5,6 +5,7 @@ import "sort"
 // ZeroSumTriplets solves the problem in O(n^2) time and O(1) space.
 func ZeroSumTriplets(list []int) [][]int {
 	output := make([][]int, 0)
+	
 	if len(list) < 3 {
 		return output
 	}

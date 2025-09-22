@@ -75,3 +75,5 @@ func OptimalProductExceptSelf(nums []int) []int {
 
 	return result
 }
+
+// same as ProductOfAllOtherElements
